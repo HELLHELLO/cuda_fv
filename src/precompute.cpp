@@ -14,7 +14,9 @@ bool generate_dgt_context(int32_t prime, int32_t depth, dgt_context** context){
         return false;
     }
     auto* temp = new dgt_context(prime,depth);
-    temp->find_g();
+    if(!temp->find_g()){
+        return false;
+    }
     if(temp->check()){
         *context = temp;
         return true;

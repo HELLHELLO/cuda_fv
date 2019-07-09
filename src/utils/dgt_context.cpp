@@ -29,6 +29,9 @@ bool dgt_context::find_g() {
     int64_t fp(prime-1); //p的欧拉函数值
     std::vector<int64_t> factor_list;
     int64_t q = 2;
+    if (mod(fp,4*depth) != 0){
+        return false;
+    }
 
     //找出p-1的所有因子
     while(q * q < fp){
